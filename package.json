@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js"
+    "build": "echo 'No build step required'",
+    "dev": "node server.js",
+    "vercel-build": "npx prisma migrate deploy"
   },
   "author": "",
   "license": "ISC",

@@ -9,7 +9,11 @@ app.use(cors());
 
 const prisma = new PrismaClient();
 
-const port = 3000;
+ const port = process.env.PORT || 3000;
+
+ app.get("/", (req, res) => {
+  res.send("API rodando!");
+});
 
 app.get("/notas", async (req, res) => {
   let notas = [];
@@ -51,7 +55,7 @@ app.put("/notas/:id", async (req, res) => {
       deadline: req.body.deadline,
     },
     where: {
-      id
+      id : Number (id)
     }
   });
 
@@ -63,7 +67,7 @@ app.delete("/notas/:id", async (req, res) => {
 
   const deleted_nota = await prisma.notas.delete({
     where: {
-      id
+      id : Number (id)
     }
   });
 
