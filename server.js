@@ -55,7 +55,7 @@ app.put("/notas/:id", async (req, res) => {
       deadline: req.body.deadline,
     },
     where: {
-      id : Number (id)
+      id : id
     }
   });
 
@@ -67,7 +67,7 @@ app.delete("/notas/:id", async (req, res) => {
 
   const deleted_nota = await prisma.notas.delete({
     where: {
-      id : Number (id)
+      id : id
     }
   });
 
